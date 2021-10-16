@@ -6,23 +6,19 @@ pipeline {
         }
     }
     environment { 
-        HOME="*"
+        CI = 'true'
     }
     stages {
         stage('Build') {
             steps {
-                sh 'npm cache clean --force '
-                sh 'npm rm -rdf node_modules'
                 sh 'npm install'
-                sh 'npm build'
-              
             }
         }
-        
-        stage('Running') { 
+        stage('Run') { 
             steps {
                 sh 'npm start &' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
+                sh './jenkins/scripts/kill.sh' 
             }
         
         }
@@ -31,5 +27,6 @@ pipeline {
                 sh 'npm test'
             }
         }
+        
     }
 }
