@@ -12,8 +12,6 @@ describe('delete item from UI', () => {
         const deleteButton = '#root > div > div > div > div > div > div.text-center.remove.col-1 > button'
         await page.waitForSelector(deleteButton);
         await page.focus(deleteButton)        
-      //  await page.keyboard.type('Test Item from Puppeteer')
-      //  await page.keyboard.type(String.fromCharCode(13));
         await page.click(deleteButton)
 
 
