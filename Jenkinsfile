@@ -11,8 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm cache clean --force --unsafe-perm'
-                sh 'npm rebuild'
+                sh 'npm install'
             }
         }
         
@@ -20,7 +19,6 @@ pipeline {
             steps {
                 sh 'npm start &' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh './jenkins/scripts/kill.sh' 
             }
         
         }
