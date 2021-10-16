@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'npm cache clean --force '
                 sh 'npm rm -rdf node_modules'
+                sh 'npm install'
                 sh 'npm build'
               
             }
