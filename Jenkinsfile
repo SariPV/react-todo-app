@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install --unsafe-perm'
+                sh 'npm cache clean --force --unsafe-perm'
                 sh 'npm rebuild'
             }
         }
