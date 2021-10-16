@@ -6,12 +6,12 @@ pipeline {
         }
     }
     environment { 
-        npm_config_cache = 'npm-cache'
+        CI="true"
     }
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'npm install --unsafe-perm'
                 sh 'npm rebuild'
             }
         }
