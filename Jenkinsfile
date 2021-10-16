@@ -6,11 +6,12 @@ pipeline {
         }
     }
     environment { 
-        CI = 'true'
+        HOME="*"
     }
     stages {
         stage('Build') {
             steps {
+             //   sh ' npm rm -rdf node_modules'
                 sh 'npm install'
             }
         }
@@ -18,7 +19,7 @@ pipeline {
             steps {
                 sh 'npm start &' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh './jenkins/scripts/kill.sh' 
+                 
             }
         
         }
