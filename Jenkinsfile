@@ -11,11 +11,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-             //   sh ' npm rm -rdf node_modules'
+                sh ' npm rm -rdf node_modules'
                 sh 'npm install'
             }
         }
-        stage('Run') { 
+        stage('Start') { 
             steps {
                 sh 'npm start &' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
