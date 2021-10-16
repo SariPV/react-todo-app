@@ -15,7 +15,7 @@ pipeline {
             }
         }
         
-        stage('Deliver') { 
+        stage('Running') { 
             steps {
                 sh 'npm start &' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
